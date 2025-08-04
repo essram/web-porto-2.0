@@ -4,7 +4,7 @@ import React from "react";
 export default function Features() {
   return (
     <div className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest">
-      <div className="bg-white mb-8 px-4 py-2 relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
+      <div className="bg-white mb-8 px-4 py-2  relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
         <div className="flex justify-center items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,16 +35,16 @@ export default function Features() {
       </div>
 
       {/* card */}
-      <div className="flex flex-row w-full flex-wrap justify-center items-center  gap-10 text-text-heading my-6">
+      <div className="flex flex-row w-full md:w-3/4 md:flex-wrap lg:justify-center md:justify-start items-center gap-10 text-text-heading my-6">
         {/* card 1 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500 md:basis-1/3">
-          <div>
+        <div className="bg-white/35 basis-1/4 md:basis-full md:w-1/2 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
+``          <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="32"
               viewBox="0 0 24 24"
-            >
+            >``
               <g
                 fill="none"
                 stroke="currentColor"
@@ -67,7 +67,7 @@ export default function Features() {
         </div>
 
         {/* card 2 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500 md:basis-1/3">
+        <div className="bg-white/35 basis-1/4 md:basis-full md:w-1/2 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ export default function Features() {
         </div>
 
         {/* card 3 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500  md:basis-1/3 ">
+        <div className="bg-white/35 basis-1/4 md:basis-full md:w-1/2 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
