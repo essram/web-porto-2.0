@@ -1,3 +1,6 @@
+"use client";
+import React from "react";
+
 export default function Features() {
   return (
     <div className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest">
@@ -18,23 +21,23 @@ export default function Features() {
         <p>Experiences</p>
       </div>
 
-      <div className="text-text-heading relative w-full flex flex-col justify-center items-center font-onest md:gap-3 text-4xl/tight md:text-6xl sm:text-5xl mb-3">
-        <h1 className="w-3/5 text-center leading-18">
+      <div className="text-text-heading relative w-full flex flex-col justify-center items-center font-onest md:gap-3 text-4xl/tight md:text-5xl sm:text-5xl mb-3">
+        <h1 className="w-3/5 md:w-3/4 text-center leading-18 ">
           My Skills that Shine, Expertise You Can Trust
         </h1>
       </div>
 
       <div className="relative w-full flex justify-center font-onest text-base md:text-lg mb-6">
-        <p className="w-1/3 text-center text-text-paragraph font-medium">
+        <p className="w-1/3 md:w-1/2  text-center text-text-paragraph font-medium">
           Explore my expertise and see how I can leverage my skills to drive
           your projects forward.
         </p>
       </div>
 
       {/* card */}
-      <div className="flex flex-row w-full justify-center items-center gap-10 text-text-heading my-6">
+      <div className="flex flex-row w-full flex-wrap justify-center items-center  gap-10 text-text-heading my-6">
         {/* card 1 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
+        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500 md:basis-1/3">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +67,7 @@ export default function Features() {
         </div>
 
         {/* card 2 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
+        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500 md:basis-1/3">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +97,7 @@ export default function Features() {
         </div>
 
         {/* card 3 */}
-        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500">
+        <div className="bg-white/35 basis-1/4 flex flex-col justify-center items-start gap-4 p-8 border-white cursor-pointer hover:border-1 hover:border-text-heading rounded-lg transition-all duration-500  md:basis-1/3 ">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
