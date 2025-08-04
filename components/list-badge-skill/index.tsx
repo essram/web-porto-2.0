@@ -1,6 +1,4 @@
 import React from "react";
-
-// Komponen SkillBadge reusable
 type SkillBadgeProps = {
   icon: React.ReactNode;
   label: string;
@@ -8,7 +6,7 @@ type SkillBadgeProps = {
 
 const SkillBadge: React.FC<SkillBadgeProps> = ({ icon, label }) => {
   return (
-    <div className="relative flex justify-center">
+    <div className="relative flex justify-center mb-12">
       <div className="bg-[#F5F9FA] border-2 rounded-full px-3 py-2 border-white flex justify-center items-center gap-2">
         <div className="text-[#636978]">{icon}</div>
         <p className="text-md text-[#AAAFB1]">{label}</p>
@@ -16,8 +14,6 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ icon, label }) => {
     </div>
   );
 };
-
-// SVG icon yang sama untuk semua (kalau nanti mau beda bisa diatur)
 const checkIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +26,6 @@ const checkIcon = (
   </svg>
 );
 
-// List skill
 const skills = [
   { label: "Front End", icon: checkIcon },
   { label: "Back End", icon: checkIcon },
