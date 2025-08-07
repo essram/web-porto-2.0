@@ -38,7 +38,7 @@ export default function Portofolio() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-x-6 gap-y-8 my-20 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 my-20 w-full px-4 sm:px-6 md:px-12">
         {[
           { img: imgTicket, title: "Train Ticket" },
           { img: imgFooder, title: "Food Ordering" },
