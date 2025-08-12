@@ -8,7 +8,7 @@ import imgWorker from "@/public/porto-images/web1.png";
 
 export default function Portofolio() {
   return (
-    <div className="relative bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest px-4">
+    <div id="projects" className="relative bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest px-4">
       <div className="bg-white mb-8 px-4 py-2 relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
         <div className="flex justify-center items-center">
           <svg
@@ -23,7 +23,7 @@ export default function Portofolio() {
             />
           </svg>
         </div>
-        <p>Experiences</p>
+        <p>Projects</p>
       </div>
 
       <div className="text-text-heading relative w-full flex flex-col justify-center items-center font-onest gap-2 sm:gap-3 text-4xl sm:text-4xl md:text-5xl mb-3">
@@ -49,24 +49,27 @@ export default function Portofolio() {
         ].map((item, i) => (
           <div
             key={i}
-            className="rounded-lg overflow-hidden flex flex-col flex-wrap w-max-sm "
+            className="rounded-lg overflow-hidden flex flex-col flex-wrap w-max-sm bg-white"
           >
             <Image
-              className="object-cover h-48"
+              className="object-cover h-56"
               src={item.img}
               alt=""
-              width={350}
+              width={456}
               height={0}
             />
-            <div className="bg-white py-3 px-4 flex flex-col gap-6 mt-2">
+            <div className=" py-3 px-4 flex flex-col gap-6 mt-2">
               <h4 className="text-lg font-onest font-semibold text-gray-800">
                 {item.title}
               </h4>
-             <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-2 px-4 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer">More detail</button>
+              <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-2 px-4 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer">
+                More detail
+              </button>
             </div>
           </div>
         ))}
       </div>
+      <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-1/6">See more</button>
     </div>
   );
 }

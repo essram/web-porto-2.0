@@ -1,11 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        "service_16ze5yc",
+        "template_7xtsdex",
+        formRef.current,
+        "s8ZFPiPFxMs1X38W9"
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Pesan terkirim!");
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert("Gagal mengirim pesan!");
+        }
+      );
+  };
   return (
     <div className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
       <div
@@ -108,17 +134,22 @@ export default function Contact() {
 
       <div className="relative w-full flex justify-center font-onest text-base md:text-lg mb-6">
         <p className="w-4/5 md:w-3/5 text-center text-text-paragraph font-medium">
-          Need Any Help? Send us a message using the form below and we&apos;ll get
-          back
+          Need Any Help? Send us a message using the form below and we&apos;ll
+          get back
         </p>
       </div>
 
-      <form action="" className="w-full flex  flex-col px-80">
-        <div className="flex flex-row w-full gap-x-8">
-          <div className="flex flex-col w-1/2">
+      <form
+        ref={formRef}
+        onSubmit={sendEmail}
+        action=""
+        className="w-full max-w-5xl mx-auto flex flex-col gap-6 px-4 sm:px-8 md:px-16 lg:px-24 py-10 rounded-xl"
+      >
+        <div className="flex flex-col md:flex-row w-full gap-6">
+          <div className="flex flex-col w-full md:w-1/2">
             <label
               htmlFor="name"
-              className="text-text-paragraph mb-2 font-medium"
+              className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
             >
               Name
             </label>
@@ -127,13 +158,15 @@ export default function Contact() {
               id="name"
               name="name"
               placeholder="Your Name"
-              className="bg-white/80 h-10 outline-1 -outline-offset-1 outline-white/10 text-gray-800 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500  rounded-lg px-3 py-2 mb-4 w-full text-sm"
+              className="bg-white border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
+        focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
             />
           </div>
-          <div className="flex flex-col w-1/2">
+
+          <div className="flex flex-col w-full md:w-1/2">
             <label
               htmlFor="email"
-              className="text-text-paragraph mb-2 font-medium"
+              className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
             >
               Email
             </label>
@@ -142,7 +175,8 @@ export default function Contact() {
               id="email"
               name="email"
               placeholder="Your Email"
-              className="bg-white/80 h-10 outline-1 -outline-offset-1 outline-white/10 text-gray-800 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500  rounded-lg px-3 py-2 mb-4 w-full text-sm"
+              className="bg-white border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
+        focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
             />
           </div>
         </div>
@@ -150,19 +184,25 @@ export default function Contact() {
         <div>
           <label
             htmlFor="message"
-            className="text-text-paragraph mb-2 font-medium"
+            className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
           >
             Message
           </label>
           <textarea
-            id="about"
-            name="about"
-            rows={3}
+            id="message"
+            name="message"
+            rows={4}
             placeholder="Your Message"
-            className="block w-full h-28 rounded-md mt-3 bg-white px-3 py-1.5 text-gray-800 outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 text-sm"
+            className="block w-full rounded-lg bg-white border border-gray-200 px-4 py-3 text-gray-800 placeholder:text-gray-400 
+      focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
           ></textarea>
         </div>
-        <button className="bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all mt-4 px-3 py-3 text-white rounded-lg hover:cursor-pointer">
+
+        <button
+          type="submit"
+          className="bg-slate-blue hover:bg-slate-blue/90 duration-200 transition-all mt-2 px-6 py-3 text-white rounded-lg 
+    text-sm sm:text-base font-medium hover:scale-[1.02] shadow-md"
+        >
           Submit
         </button>
       </form>

@@ -27,7 +27,7 @@ export default function ExpertiseCard({
       >
         {icon}
       </div>
-      <div className="flex flex-col justify-center text-slate-blue">
+      <div className="flex flex-col justify-center text-slate-blue gap-y-1">
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm opacity-50">{desc}</p>
       </div>

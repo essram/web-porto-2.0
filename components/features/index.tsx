@@ -1,9 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Features() {
+  useEffect(() => {
+    AOS.init({
+      // disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
   return (
-    <div className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest px-4 py-10">
+    <div data-aos="fade-up"  id="features" className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest px-4 py-10">
       <div className="bg-white mb-8 px-4 py-2 relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
         <div className="flex justify-center items-center">
           <svg
