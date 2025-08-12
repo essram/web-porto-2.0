@@ -7,7 +7,7 @@ type SkillBadgeProps = {
 const SkillBadge: React.FC<SkillBadgeProps> = ({ icon, label }) => {
   return (
     <div className="relative flex justify-center mb-12">
-      <div className="bg-[#F5F9FA] border-2 rounded-full px-3 py-2 border-white flex justify-center items-center gap-2">
+      <div className="bg-[#F5F9FA] w-max-fit border-2 rounded-full px-3 py-2 border-white flex justify-center items-center gap-2">
         <div className="text-[#636978]">{icon}</div>
         <p className="text-md text-[#AAAFB1]">{label}</p>
       </div>
@@ -32,7 +32,6 @@ const skills = [
   { label: "UI/UX Design", icon: checkIcon },
 ];
 
-// Komponen utama
 const SkillBadgeList: React.FC = () => {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
