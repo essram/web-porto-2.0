@@ -16,7 +16,7 @@ export default function Footer() {
               />
             </div>
             <p className="w-full sm:w-4/5 text-justify/loose text-text-paragraph text-base sm:text-lg">
-              I'm a versatile designer & developer based in the Indonesia,
+              I&apos;m a versatile designer & developer based in the Indonesia,
               dedicated to crafting innovative and visually appealing digital
               experiences.
             </p>

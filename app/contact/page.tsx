@@ -108,7 +108,7 @@ export default function Contact() {
 
       <div className="relative w-full flex justify-center font-onest text-base md:text-lg mb-6">
         <p className="w-4/5 md:w-3/5 text-center text-text-paragraph font-medium">
-          Need Any Help? Send us a message using the form below and we'll get
+          Need Any Help? Send us a message using the form below and we&apos;ll get
           back
         </p>
       </div>
@@ -162,7 +162,9 @@ export default function Contact() {
             className="block w-full h-28 rounded-md mt-3 bg-white px-3 py-1.5 text-gray-800 outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 text-sm"
           ></textarea>
         </div>
-        <button className="bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all mt-4 px-3 py-3 text-white rounded-lg hover:cursor-pointer">Submit</button>
+        <button className="bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all mt-4 px-3 py-3 text-white rounded-lg hover:cursor-pointer">
+          Submit
+        </button>
       </form>
     </div>
   );

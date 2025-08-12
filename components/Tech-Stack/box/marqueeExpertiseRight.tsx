@@ -1,7 +1,7 @@
 import { useState, MouseEventHandler, useRef, useEffect } from "react";
 import ExpertiseCard from "./boxExpertise";
 
-import { FaReact, FaNodeJs, FaPython, FaDatabase } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import {
   SiFigma,
   SiMysql,

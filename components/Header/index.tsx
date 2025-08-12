@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import SkillBadgeList from "../list-badge-skill";
+import SkillBadgeList from "../List-Badge-Skill";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +26,13 @@ export default function Navbar() {
             <p>Tools</p>
           </div>
 
-          <button className="hidden md:block bg-[#3C5867] px-5 py-3 md:py-4 text-white rounded-full">
-            Get Started
-          </button>
+          <Link 
+            href="/contact"
+          >
+            <button className="hover hidden md:block bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all px-5 py-3 md:py-4 text-white rounded-full hover:cursor-pointer">
+              Get Started
+            </button>
+          </Link>
 
           <button
             className="md:hidden"
@@ -60,9 +65,15 @@ export default function Navbar() {
               <p>Experiences</p>
               <p>Project</p>
               <p>Tools</p>
-              <button className="bg-[#3C5867] text-white w-full mx-6 py-3 rounded-full mt-2">
-                Get Started
-              </button>
+              <Link href="/contact">
+                <button
+                  className={`bg-[#3C5867] text-white hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer  ${
+                    isMenuOpen ? "w-full rounded-3xl" : "w-full rounded-full"
+                  } mx-6 py-3  mt-2`}
+                >
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         )}
@@ -79,9 +90,9 @@ export default function Navbar() {
             <g
               fill="#3C5867"
               stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
             >
               <path d="M18.99 19H19m-.01 0c-.622.617-1.75.464-2.542.464c-.972 0-1.44.19-2.133.883C13.725 20.937 12.934 22 12 22s-1.725-1.063-2.315-1.653c-.694-.693-1.162-.883-2.133-.883c-.791 0-1.92.154-2.543-.464c-.627-.622-.473-1.756-.473-2.552c0-1.007-.22-1.47-.937-2.186C2.533 13.196 2 12.662 2 12s.533-1.196 1.6-2.262c.64-.64.936-1.274.936-2.186c0-.791-.154-1.92.464-2.543c.622-.627 1.756-.473 2.552-.473c.912 0 1.546-.297 2.186-.937C10.804 2.533 11.338 2 12 2s1.196.533 2.262 1.6c.64.64 1.274.936 2.186.936c.791 0 1.92-.154 2.543.464c.627.622.473 1.756.473 2.552c0 1.007.22 1.47.937 2.186C21.467 10.804 22 11.338 22 12s-.533 1.196-1.6 2.262c-.716.717-.936 1.18-.936 2.186c0 .796.154 1.93-.473 2.552" />
               <path d="M9 12.893s1.2.652 1.8 1.607c0 0 1.8-3.75 4.2-5" />
@@ -93,7 +104,7 @@ export default function Navbar() {
 
       <div className="text-text-heading relative w-full flex flex-col justify-center items-center font-onest md:gap-3 text-4xl md:text-6xl sm:text-5xl mb-3">
         <h1 className="w-4/5 md:w-3/4 xs:w-1/2 text-center">
-          Hey, I’m Rama. I'm a
+          Hey, I&apos;m Rama. I&apos;m a
         </h1>
         <h1 className="w-auto md:w-3/4 md:leading-18 text-center">
           UI/UX Designer & Web Developer
@@ -101,15 +112,15 @@ export default function Navbar() {
       </div>
 
       <div className="relative w-full flex justify-center font-onest text-base md:text-lg mb-6">
-        <p className="w-4/5 md:w-3/5 text-center text-[#5A6D75] font-medium">
-          I'm a versatile designer & developer based in the Indonesia, dedicated
+        <p className="w-4/5 md:w-3/5 text-center text-text-paragraph font-medium">
+          I&apos;m a versatile designer & developer based in the Indonesia, dedicated
           to crafting innovative and visually appealing digital experiences.
         </p>
       </div>
 
       <div className="relative">
-        <button className="bg-slate-blue px-5 py-3 rounded-full text-white text-base md:text-lg mb-8">
-          Let's Work Together
+        <button className="bg-slate-blue px-5 py-3 rounded-full text-white text-base md:text-lg mb-8 hover:bg-slate-blue/80 duration-200 transition-all">
+          Let&apos;s Work Together
         </button>
       </div>
 
