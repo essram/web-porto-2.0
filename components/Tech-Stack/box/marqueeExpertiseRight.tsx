@@ -1,3 +1,4 @@
+"use client"
 import { useState, MouseEventHandler, useRef, useEffect } from "react";
 import ExpertiseCard from "./boxExpertise";
 

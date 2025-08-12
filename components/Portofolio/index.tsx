@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import imgTicket from "@/public/porto-images/train-ticket.png";
 import imgEcommerce from "@/public/porto-images/ecommerce.png";

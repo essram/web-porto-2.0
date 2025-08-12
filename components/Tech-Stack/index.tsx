@@ -1,3 +1,4 @@
+"use client"
 import ExpertiseMarqueeLeft from "./box/marqueeExpertiseLeft";
 import ExpertiseMarqueeRight from "./box/marqueeExpertiseRight";
 
