@@ -5,6 +5,7 @@ import SkillBadgeList from "@/components/list-badge";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+// import arigatou gozaimas
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
