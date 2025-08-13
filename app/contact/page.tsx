@@ -1,15 +1,30 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
-const notifySuccess = () => toast("Message sent successfully!");
-const notifyFailed = () => toast("Message sent failed!");
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const notifySuccess = () => toast.success("Message sent successfully!");
+  const notifyFailed = () => toast.error("Message sent failed!");
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      // disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,17 +39,18 @@ export default function Contact() {
         "s8ZFPiPFxMs1X38W9"
       )
       .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
+        () => {
+          console.log("SUCCESS!");
           notifySuccess();
           formRef.current?.reset();
         },
-        (error) => {
-          console.log("FAILED...", error.text);
+        () => {
+          console.log("FAILED...");
           notifyFailed();
         }
       );
   };
+
   return (
     <div className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
       <div
@@ -47,12 +63,38 @@ export default function Contact() {
   ${isMenuOpen ? "rounded-3xl" : "rounded-full lg:rounded-full"}`}
       >
         <div className="flex justify-between items-center">
-          <Image src="/logo-porto.png" alt="Logo" width={90} height={90} />
+          <Link href="/">
+            <Image src="/logo-porto.png" alt="Logo" width={90} height={90} />
+          </Link>
 
           <div className="hidden md:flex gap-8 items-center text-slate-blue text-base">
-            <p>Experiences</p>
-            <p>Project</p>
-            <p>Tools</p>
+            <a
+              onClick={() => scrollToSection("features")}
+              className="relative cursor-pointer 
+              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+              hover:after:left-0 hover:after:w-full"
+            >
+              Experiences
+            </a>
+            <a
+              onClick={() => scrollToSection("projects")}
+              className="relative cursor-pointer 
+              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+              hover:after:left-0 hover:after:w-full"
+            >
+              Project
+            </a>
+            <a
+              onClick={() => scrollToSection("tools")}
+              className="relative cursor-pointer 
+              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+              hover:after:left-0 hover:after:w-full"
+            >
+              Tools
+            </a>
           </div>
 
           <Link href="/contact">
@@ -201,10 +243,12 @@ export default function Contact() {
           ></textarea>
         </div>
 
+        <Toaster position="top-center" reverseOrder={false} />
         <button
           type="submit"
           className="bg-slate-blue hover:bg-slate-blue/90 duration-200 transition-all mt-2 px-6 py-3 text-white rounded-lg 
     text-sm sm:text-base font-medium hover:scale-[1.02] shadow-md"
+          onClick={notifySuccess}
         >
           Submit
         </button>

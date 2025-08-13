@@ -13,6 +13,7 @@ export default function Navbar() {
     const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: "smooth" });
   };
+
   useEffect(() => {
     AOS.init({
       // disable: "phone",
@@ -20,15 +21,18 @@ export default function Navbar() {
       easing: "ease-out-cubic",
     });
   }, []);
-  return (
-    <div className=" flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
-      <Link href="/">
-        <div
-          className="fixed top-0 left-0 w-full h-[30vh] md:h-[40vh] bg-cover bg-center z-[-1] "
-          style={{ backgroundImage: "url('../bg-header.png')" }}
-        />
-      </Link>
 
+  return (
+    <div
+      data-aos="fade-up"
+      className=" flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0"
+    >
+      <div
+        className="fixed top-0 left-0 w-full h-[30vh] md:h-[40vh] bg-cover bg-center z-[-1] "
+        style={{ backgroundImage: "url('../bg-header.png')" }}
+      />
+
+      
       <div
         className={`bg-white w-full max-w-4xl py-6 px-6 md:px-14  relative transition-all duration-300
   ${isMenuOpen ? "rounded-3xl" : "rounded-full lg:rounded-full"}`}
@@ -119,7 +123,7 @@ export default function Navbar() {
         )}
       </div>
 
-      <div data-aos="fade-up"  className="bg-[#F7FAFC] h-fit w-fit p-1 mt-16 md:mt-20 mb-8 rounded-full">
+      <div className="bg-[#F7FAFC] h-fit w-fit p-1 mt-16 md:mt-20 mb-8 rounded-full">
         <div className="bg-white   px-4 py-2 text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center border-2 border-[#FAFCFE]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
