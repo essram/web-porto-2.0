@@ -7,13 +7,20 @@ import toast, { Toaster } from "react-hot-toast";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
+  // State form input
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const notifySuccess = () => toast.success("Message sent successfully!");
   const notifyFailed = () => toast.error("Message sent failed!");
+  const notifyRequired = (field: string) =>
+    toast.error(`${field} is required!`);
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: "smooth" });
@@ -21,7 +28,6 @@ export default function Contact() {
 
   useEffect(() => {
     AOS.init({
-      // disable: "phone",
       duration: 700,
       easing: "ease-out-cubic",
     });
@@ -29,6 +35,20 @@ export default function Contact() {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validasi
+    if (!name.trim()) {
+      notifyRequired("Name");
+      return;
+    }
+    if (!email.trim()) {
+      notifyRequired("Email");
+      return;
+    }
+    if (!message.trim()) {
+      notifyRequired("Message");
+      return;
+    }
 
     if (!formRef.current) return;
 
@@ -41,19 +61,23 @@ export default function Contact() {
       )
       .then(
         () => {
-          console.log("SUCCESS!");
           notifySuccess();
           formRef.current?.reset();
+          setName("");
+          setEmail("");
+          setMessage("");
         },
         () => {
-          console.log("FAILED...");
           notifyFailed();
         }
       );
   };
 
   return (
-    <div data-aos="fade-up" className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
+    <div
+      data-aos="fade-up"
+      className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0"
+    >
       <div
         className="fixed top-0 left-0 w-full h-[30vh] md:h-[40vh] bg-cover bg-center z-[-1]"
         style={{ backgroundImage: "url('../bg-header.png')" }}
@@ -69,33 +93,39 @@ export default function Contact() {
           </Link>
 
           <div className="hidden md:flex gap-8 items-center text-slate-blue text-base">
-            <a
-              onClick={() => scrollToSection("features")}
-              className="relative cursor-pointer 
+            <Link href="/?scrollTo=features">
+              <p
+                className="relative cursor-pointer 
               after:content-[''] after:absolute after:left-1/2 after:bottom-0 
               after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
               hover:after:left-0 hover:after:w-full"
-            >
-              Experiences
-            </a>
-            <a
-              onClick={() => scrollToSection("projects")}
-              className="relative cursor-pointer 
+              >
+                Experiences
+              </p>
+            </Link>
+
+            <Link href="/?scrollTo=projects">
+              <p
+                onClick={() => scrollToSection("projects")}
+                className="relative cursor-pointer 
               after:content-[''] after:absolute after:left-1/2 after:bottom-0 
               after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
               hover:after:left-0 hover:after:w-full"
-            >
-              Project
-            </a>
-            <a
-              onClick={() => scrollToSection("tools")}
-              className="relative cursor-pointer 
+              >
+                Project
+              </p>
+            </Link>
+            <Link href="/?scrollTo=tools">
+              <p
+                onClick={() => scrollToSection("tools")}
+                className="relative cursor-pointer 
               after:content-[''] after:absolute after:left-1/2 after:bottom-0 
               after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
               hover:after:left-0 hover:after:w-full"
-            >
-              Tools
-            </a>
+              >
+                Tools
+              </p>
+            </Link>
           </div>
 
           <Link href="/contact">
@@ -130,21 +160,49 @@ export default function Contact() {
         </div>
 
         {isMenuOpen && (
-          <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base">
-            <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base">
-              <p>Experiences</p>
-              <p>Project</p>
-              <p>Tools</p>
-              <Link href="/contact">
-                <button
-                  className={`bg-[#3C5867] text-white hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer  ${
-                    isMenuOpen ? "w-full rounded-3xl" : "w-full rounded-full"
-                  } mx-6 py-3  mt-2`}
-                >
-                  Get Started
-                </button>
-              </Link>
-            </div>
+          <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base px-6">
+            <Link href="/?scrollTo=projects">
+              <p
+                onClick={() => scrollToSection("features")}
+                className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+              >
+                Experiences
+              </p>
+            </Link>
+            <Link href="/?scrollTo=projects">
+              <p
+                onClick={() => scrollToSection("projects")}
+                className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+              >
+                Project
+              </p>
+            </Link>
+            <Link href="/?scrollTo=projects">
+              <p
+                onClick={() => scrollToSection("tools")}
+                className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+              >
+                Tools
+              </p>
+            </Link>
+
+            <Link href="/contact" className="w-full">
+              <button
+                className="bg-[#3C5867] text-white hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer w-full rounded-3xl py-3 mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get Started
+              </button>
+            </Link>
           </div>
         )}
       </div>
@@ -188,15 +246,11 @@ export default function Contact() {
       <form
         ref={formRef}
         onSubmit={sendEmail}
-        action=""
         className="w-full max-w-5xl mx-auto flex flex-col gap-6 px-4 sm:px-8 md:px-16 lg:px-24 py-10 rounded-xl"
       >
         <div className="flex flex-col md:flex-row w-full gap-6">
           <div className="flex flex-col w-full md:w-1/2">
-            <label
-              htmlFor="name"
-              className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
-            >
+            <label htmlFor="name" className="mb-2 text-text-heading">
               Name
             </label>
             <input
@@ -204,16 +258,15 @@ export default function Contact() {
               id="name"
               name="name"
               placeholder="Your Name"
-              className="bg-white border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
-        focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-white/5 border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
+              focus:border-slate-blue focus:ring-1 outline-none text-sm sm:text-base transition"
             />
           </div>
 
           <div className="flex flex-col w-full md:w-1/2">
-            <label
-              htmlFor="email"
-              className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
-            >
+            <label htmlFor="email" className="mb-2 text-text-heading">
               Email
             </label>
             <input
@@ -221,17 +274,16 @@ export default function Contact() {
               id="email"
               name="email"
               placeholder="Your Email"
-              className="bg-white border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
-        focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-white/5 border border-gray-200 h-12 rounded-lg px-4 text-gray-800 placeholder:text-gray-400 
+              focus:border-slate-blue focus:ring-1  outline-none text-sm sm:text-base transition"
             />
           </div>
         </div>
 
         <div>
-          <label
-            htmlFor="message"
-            className="text-text-paragraph mb-2 font-medium text-sm sm:text-base"
-          >
+          <label htmlFor="message" className="mb-2 text-text-heading">
             Message
           </label>
           <textarea
@@ -239,17 +291,23 @@ export default function Contact() {
             name="message"
             rows={4}
             placeholder="Your Message"
-            className="block w-full rounded-lg bg-white border border-gray-200 px-4 py-3 text-gray-800 placeholder:text-gray-400 
-      focus:border-slate-blue focus:ring-2 focus:ring-slate-blue/30 outline-none text-sm sm:text-base transition"
-          ></textarea>
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="bg-white/5 border rounded-lg mt-3 h-36 px-4 py-2 w-full text-gray-800 border-gray-200 placeholder:text-gray-400"
+          />
         </div>
 
         <Toaster position="top-center" reverseOrder={false} />
+
         <button
           type="submit"
-          className="bg-slate-blue hover:bg-slate-blue/90 duration-200 transition-all mt-2 px-6 py-3 text-white rounded-lg 
-    text-sm sm:text-base font-medium hover:scale-[1.02] shadow-md"
-          onClick={notifySuccess}
+          disabled={!name.trim() || !email.trim() || !message.trim()}
+          className={`mt-2 px-6 py-3 text-white rounded-lg text-sm sm:text-base font-medium shadow-md transition-all duration-200 
+            ${
+              !name.trim() || !email.trim() || !message.trim()
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-slate-blue hover:bg-slate-blue/90 hover:scale-[1.02]"
+            }`}
         >
           Submit
         </button>
