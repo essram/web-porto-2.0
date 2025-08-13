@@ -3,6 +3,9 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
+const notifySuccess = () => toast("Message sent successfully!");
+const notifyFailed = () => toast("Message sent failed!");
 
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,12 +26,12 @@ export default function Contact() {
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
-          alert("Pesan terkirim!");
+          notifySuccess();
           formRef.current?.reset();
         },
         (error) => {
           console.log("FAILED...", error.text);
-          alert("Gagal mengirim pesan!");
+          notifyFailed();
         }
       );
   };
