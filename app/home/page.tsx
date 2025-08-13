@@ -1,10 +1,10 @@
 'use client'
 
-import Header from "@/components/header";
-import Portofolio from "@/components/portofolio";
+import Header from "@/components/headerr";
+import Portofolio from "@/components/portofolioo";
 import Features from "@/components/feature";
-import TechStack from "@/components/tech-stack";
-import Footer from "@/components/footer";
+import TechStack from "@/components/tech-stackk";
+import Footer from "@/components/foooter";
 
 export default function Home() {
     return <div>
