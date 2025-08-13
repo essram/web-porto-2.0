@@ -32,9 +32,8 @@ export default function Navbar() {
         style={{ backgroundImage: "url('../bg-header.png')" }}
       />
 
-      
       <div
-        className={`bg-white w-full max-w-4xl py-6 px-6 md:px-14  relative transition-all duration-300
+        className={`bg-white w-full max-w-4xl py-6 px-6 md:px-14 relative transition-all duration-300
   ${isMenuOpen ? "rounded-3xl" : "rounded-full lg:rounded-full"}`}
       >
         <div className="flex justify-between items-center">
@@ -46,34 +45,34 @@ export default function Navbar() {
             <a
               onClick={() => scrollToSection("features")}
               className="relative cursor-pointer 
-              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
-              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
-              hover:after:left-0 hover:after:w-full"
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
             >
               Experiences
             </a>
             <a
               onClick={() => scrollToSection("projects")}
               className="relative cursor-pointer 
-              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
-              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
-              hover:after:left-0 hover:after:w-full"
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
             >
               Project
             </a>
             <a
               onClick={() => scrollToSection("tools")}
               className="relative cursor-pointer 
-              after:content-[''] after:absolute after:left-1/2 after:bottom-0 
-              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
-              hover:after:left-0 hover:after:w-full"
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
             >
               Tools
             </a>
           </div>
 
           <Link href="/contact">
-            <button className="hover hidden md:block bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all px-5 py-3 md:py-4 text-white rounded-full hover:cursor-pointer">
+            <button className="hidden md:block bg-[#3C5867] hover:bg-slate-blue/80 duration-200 transition-all px-5 py-3 md:py-4 text-white rounded-full hover:cursor-pointer whitespace-nowrap">
               Get Started
             </button>
           </Link>
@@ -81,6 +80,7 @@ export default function Navbar() {
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,21 +104,43 @@ export default function Navbar() {
         </div>
 
         {isMenuOpen && (
-          <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base">
-            <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base">
-              <p>Experiences</p>
-              <p>Project</p>
-              <p>Tools</p>
-              <Link href="/contact">
-                <button
-                  className={`bg-[#3C5867] text-white hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer  ${
-                    isMenuOpen ? "w-full rounded-3xl" : "w-full rounded-full"
-                  } mx-6 py-3  mt-2`}
-                >
-                  Get Started
-                </button>
-              </Link>
-            </div>
+          <div className="mt-6 rounded-lg flex flex-col items-center gap-4 md:hidden text-slate-blue text-base px-6">
+            <a
+              onClick={() => scrollToSection("features")}
+              className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+            >
+              Experiences
+            </a>
+            <a
+              onClick={() => scrollToSection("projects")}
+              className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+            >
+              Project
+            </a>
+            <a
+              onClick={() => scrollToSection("tools")}
+              className="relative cursor-pointer 
+        after:content-[''] after:absolute after:left-1/2 after:bottom-0 
+        after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-400 after:ease-out
+        hover:after:left-0 hover:after:w-full"
+            >
+              Tools
+            </a>
+
+            <Link href="/contact" className="w-full">
+              <button
+                className="bg-[#3C5867] text-white hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer w-full rounded-3xl py-3 mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get Started
+              </button>
+            </Link>
           </div>
         )}
       </div>
