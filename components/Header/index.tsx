@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import SkillBadgeList from "../List-Badge-Skill/index";
+import SkillBadgeList from "@/components/List-Badge-Skill";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
