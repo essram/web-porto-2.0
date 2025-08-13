@@ -1,4 +1,6 @@
-"use client"
+"use client";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import imgTicket from "@/public/porto-images/train-ticket.png";
 import imgEcommerce from "@/public/porto-images/ecommerce.png";
@@ -6,10 +8,28 @@ import imgLearn from "@/public/porto-images/redesign_khan_academy.png";
 import imgFooder from "@/public/porto-images/fooder-home.png";
 import imgNusa from "@/public/porto-images/exploreNusa.png";
 import imgWorker from "@/public/porto-images/web1.png";
+import { useEffect } from "react";
 
 export default function Portofolio() {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      // disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
-    <div id="projects" className="relative bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest px-4">
+    <div
+      data-aos="fade-up"
+      id="projects"
+      className="relative bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest px-4"
+    >
       <div className="bg-white mb-8 px-4 py-2 relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
         <div className="flex justify-center items-center">
           <svg
@@ -70,7 +90,9 @@ export default function Portofolio() {
           </div>
         ))}
       </div>
-      <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-1/6">See more</button>
+      <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-1/6">
+        See more
+      </button>
     </div>
   );
 }

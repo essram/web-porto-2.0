@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -52,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
+    <div data-aos="fade-up" className="flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0">
       <div
         className="fixed top-0 left-0 w-full h-[30vh] md:h-[40vh] bg-cover bg-center z-[-1]"
         style={{ backgroundImage: "url('../bg-header.png')" }}

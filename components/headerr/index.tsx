@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <div
-      data-aos="fade-up"
+      data-aos="fade-down"
       className=" flex my-8 mx-4 md:mx-8 font-poppins flex-col items-center min-h-screen md:min-h-0"
     >
       <div

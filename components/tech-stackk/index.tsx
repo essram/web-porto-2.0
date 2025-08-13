@@ -1,10 +1,25 @@
 "use client"
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ExpertiseMarqueeLeft from "./box/marqueeExpertiseLeft";
 import ExpertiseMarqueeRight from "./box/marqueeExpertiseRight";
 
 export default function TechStack() {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      // disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
   return (
-    <div id="tools" className="relative w-full bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest">
+    <div data-aos="fade-up" id="tools" className="relative w-full bg-[#F4F8FA] flex flex-col items-center justify-center min-h-screen font-onest">
       <div className="bg-white mb-8 px-4 py-2 relative text-slate-blue rounded-full flex flex-row justify-between gap-2 items-center">
         <div className="flex justify-center items-center">
           <svg

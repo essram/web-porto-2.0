@@ -1,9 +1,25 @@
 "use client"
+import { useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Footer() {
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      // disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
   return (
-    <div className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest px-6 sm:px-12 md:px-24 lg:px-32 py-10 text-text-heading">
+    <div data-aos="fade-up" className="relative bg-[#F4F8FA] flex justify-center flex-col items-center min-h-screen font-onest px-6 sm:px-12 md:px-24 lg:px-32 py-10 text-text-heading">
       <div className="bg-white py-10 px-6 sm:px-12 md:px-16 flex flex-col lg:px-24 rounded-xl">
         <div className=" w-full flex flex-col lg:flex-row justify-between gap-10">
           {/* basis logo & description */}
