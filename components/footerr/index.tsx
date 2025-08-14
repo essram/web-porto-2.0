@@ -5,10 +5,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Footer() {
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToSection = (id: string) => {
+  //   const section = document.getElementById(id);
+  //   section?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useEffect(() => {
     AOS.init({

@@ -11,10 +11,10 @@ import imgWorker from "@/public/porto-images/web1.png";
 import { useEffect } from "react";
 
 export default function Portofolio() {
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToSection = (id: string) => {
+  //   const section = document.getElementById(id);
+  //   section?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useEffect(() => {
     AOS.init({

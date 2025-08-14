@@ -1,14 +1,14 @@
 "use client";
 
+import { Suspense, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Header from "@/components/headerr";
 import Portofolio from "@/components/portofolioo";
 import Features from "@/components/feature";
 import TechStack from "@/components/tech-stackk";
 import Footer from "@/components/footerr";
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const scrollTo = searchParams.get("scrollTo");
 
@@ -19,6 +19,7 @@ export default function Home() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }, [scrollTo]);
+
   return (
     <div>
       <Header />
@@ -33,5 +34,13 @@ export default function Home() {
       </section>
       <Footer />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

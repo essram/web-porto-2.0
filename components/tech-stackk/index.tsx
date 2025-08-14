@@ -6,10 +6,10 @@ import ExpertiseMarqueeLeft from "./box/marqueeExpertiseLeft";
 import ExpertiseMarqueeRight from "./box/marqueeExpertiseRight";
 
 export default function TechStack() {
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToSection = (id: string) => {
+  //   const section = document.getElementById(id);
+  //   section?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useEffect(() => {
     AOS.init({
