@@ -90,7 +90,10 @@ export default function Portofolio() {
           </div>
         ))}
       </div>
-      <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-1/6">
+      <button
+        className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg  hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-full        sm:w-1/6     lg:w-1/5    
+"
+      >
         See more
       </button>
     </div>
