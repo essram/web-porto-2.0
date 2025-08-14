@@ -2,13 +2,15 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import imgTicket from "@/public/porto-images/train-ticket.png";
 import imgEcommerce from "@/public/porto-images/ecommerce.png";
 import imgLearn from "@/public/porto-images/redesign_khan_academy.png";
 import imgFooder from "@/public/porto-images/fooder-home.png";
 import imgNusa from "@/public/porto-images/exploreNusa.png";
 import imgWorker from "@/public/porto-images/web1.png";
-import { useEffect } from "react";
+import { styleText } from "util";
 
 export default function Portofolio() {
   // const scrollToSection = (id: string) => {
@@ -23,6 +25,12 @@ export default function Portofolio() {
       easing: "ease-out-cubic",
     });
   }, []);
+
+  const handleOnProgress = () => {
+    toast.error("These features are still under development.", {
+      icon: "⌛",
+    });
+  };
 
   return (
     <div
@@ -83,7 +91,35 @@ export default function Portofolio() {
               <h4 className="text-lg font-onest font-semibold text-gray-800">
                 {item.title}
               </h4>
-              <button className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-2 px-4 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer">
+              {/* <Toaster
+                position="top-center"
+                reverseOrder={false}
+                toastOptions={{
+                  style: {
+                    background: "#1E293B",
+                    color: "#F1F5F9",
+                    fontSize: "14px",
+                    borderRadius: "12px",
+                    padding: "12px 16px",
+                    // boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                  },
+                  error: {
+                    style: {
+                      background: "#EF4444",
+                      color: "#fff",
+                    },
+                    iconTheme: {
+                      primary: "#fff",
+                      secondary: "#EF4444",
+                    },
+                  },
+                }}
+              /> */}
+
+              <button
+                onClick={handleOnProgress}
+                className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-2 px-4 rounded-lg hover:bg-slate-blue/90 transition-all hover:cursor-pointer"
+              >
                 More detail
               </button>
             </div>
@@ -91,6 +127,7 @@ export default function Portofolio() {
         ))}
       </div>
       <button
+        onClick={handleOnProgress}
         className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg  hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-full        sm:w-1/6     lg:w-1/5    
 "
       >

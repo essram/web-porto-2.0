@@ -11,10 +11,10 @@ export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // State form input
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const notifySuccess = () => toast.success("Message sent successfully!");
   const notifyFailed = () => toast.error("Message sent failed!");
@@ -36,7 +36,6 @@ export default function Contact() {
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validasi
     if (!name.trim()) {
       notifyRequired("Name");
       return;
@@ -51,6 +50,9 @@ export default function Contact() {
     }
 
     if (!formRef.current) return;
+
+    setIsSubmitting(true);
+    document.body.style.cursor = "wait";
 
     emailjs
       .sendForm(
@@ -70,7 +72,11 @@ export default function Contact() {
         () => {
           notifyFailed();
         }
-      );
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+        document.body.style.cursor = "default";
+      });
   };
 
   return (
@@ -297,19 +303,56 @@ export default function Contact() {
           />
         </div>
 
-        <Toaster position="top-center" reverseOrder={false} />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              background: "#1E293B",
+              color: "#F1F5F9",
+              fontSize: "14px",
+              borderRadius: "12px",
+              padding: "12px 16px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+            },
+            success: {
+              style: {
+                background: "#10B981",
+                color: "#fff",
+              },
+              iconTheme: {
+                primary: "#fff",
+                secondary: "#10B981",
+              },
+            },
+            error: {
+              style: {
+                background: "#EF4444",
+                color: "#fff",
+              },
+              iconTheme: {
+                primary: "#fff",
+                secondary: "#EF4444",
+              },
+            },
+          }}
+        />
 
         <button
           type="submit"
-          disabled={!name.trim() || !email.trim() || !message.trim()}
+          disabled={
+            isSubmitting || !name.trim() || !email.trim() || !message.trim()
+          }
           className={`mt-2 px-6 py-3 text-white rounded-lg text-sm sm:text-base font-medium shadow-md transition-all duration-200 
-            ${
-              !name.trim() || !email.trim() || !message.trim()
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-slate-blue hover:bg-slate-blue/90 hover:scale-[1.02]"
-            }`}
+    ${
+      isSubmitting
+        ? "bg-gray-400 cursor-wait"
+        : !name.trim() || !email.trim() || !message.trim()
+        ? "bg-gray-400 cursor-not-allowed"
+        : "bg-slate-blue hover:bg-slate-blue/90 hover:scale-[1.02]"
+    }`}
         >
-          Submit
+          {isSubmitting ? "Sending..." : "Submit"}
         </button>
       </form>
     </div>
