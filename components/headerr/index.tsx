@@ -5,7 +5,7 @@ import SkillBadgeList from "@/components/list-badge";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import arigatou gozaimas
+// import TextType from "@/animation/header-text-type/headerTyping";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -186,9 +186,11 @@ export default function Navbar() {
       </div>
 
       <div className="relative">
-        <button className="bg-slate-blue px-5 py-3 rounded-full text-white text-base md:text-lg mb-8 hover:bg-slate-blue/80 duration-200 transition-all">
-          Let&apos;s Work Together
-        </button>
+        <Link href="/contact">
+          <button className="bg-slate-blue px-5 py-3 rounded-full text-white text-base md:text-lg mb-8 hover:bg-slate-blue/80 duration-200 transition-all hover:cursor-pointer">
+            Let&apos;s Work Together
+          </button>
+        </Link>
       </div>
 
       <SkillBadgeList />
