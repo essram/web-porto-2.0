@@ -28,7 +28,7 @@ export default function Portofolio() {
 
   const handleOnProgress = () => {
     toast.error("These features are still under development.", {
-      icon: "⌛",
+      // icon:   <img src="/pasir_waktu.png" alt="loading" className="w-6 h-6" />,
     });
   };
 
