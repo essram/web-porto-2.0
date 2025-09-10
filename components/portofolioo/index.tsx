@@ -10,26 +10,24 @@ import imgLearn from "@/public/porto-images/redesign_khan_academy.png";
 import imgFooder from "@/public/porto-images/fooder-home.png";
 import imgNusa from "@/public/porto-images/exploreNusa.png";
 import imgWorker from "@/public/porto-images/web1.png";
-import { styleText } from "util";
 
 export default function Portofolio() {
-  // const scrollToSection = (id: string) => {
-  //   const section = document.getElementById(id);
-  //   section?.scrollIntoView({ behavior: "smooth" });
-  // };
-
   useEffect(() => {
     AOS.init({
-      // disable: "phone",
       duration: 700,
       easing: "ease-out-cubic",
     });
   }, []);
 
+  const categoryColors: Record<string, string> = {
+    "Front End": "bg-blue-100 text-blue-700",
+    "Back End": "bg-green-100 text-green-700",
+    "UI/UX": "bg-pink-100 text-pink-700",
+    Fullstack: "bg-purple-100 text-purple-700",
+  };
+
   const handleOnProgress = () => {
-    toast.error("These features are still under development.", {
-      // icon:   <img src="/pasir_waktu.png" alt="loading" className="w-6 h-6" />,
-    });
+    toast.error("These features are still under development.", {});
   };
 
   return (
@@ -69,12 +67,36 @@ export default function Portofolio() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 my-20 w-full px-4 sm:px-6 md:px-12">
         {[
-          { img: imgTicket, title: "Train Ticket" },
-          { img: imgFooder, title: "Food Ordering" },
-          { img: imgEcommerce, title: "Ecommerce" },
-          { img: imgLearn, title: "Learn" },
-          { img: imgNusa, title: "Explore Nusa" },
-          { img: imgWorker, title: "Work King" },
+          {
+            img: imgTicket,
+            title: "Train Ticket",
+            category: ["Front End", "Back End", "Fullstack"],
+          },
+          {
+            img: imgFooder,
+            title: "Food Ordering",
+            category: ["Front End", "Back End"],
+          },
+          {
+            img: imgEcommerce,
+            title: "Ecommerce",
+            category: ["UI/UX"],
+          },
+          {
+            img: imgLearn,
+            title: "Learn",
+            category: ["UI/UX", "Front End"],
+          },
+          {
+            img: imgNusa,
+            title: "Explore Nusa",
+            category: ["UI/UX", "Front End"],
+          },
+          {
+            img: imgWorker,
+            title: "Work King",
+            category: ["UI/UX"],
+          },
         ].map((item, i) => (
           <div
             key={i}
@@ -91,30 +113,17 @@ export default function Portofolio() {
               <h4 className="text-lg font-onest font-semibold text-gray-800">
                 {item.title}
               </h4>
-              {/* <Toaster
-                position="top-center"
-                reverseOrder={false}
-                toastOptions={{
-                  style: {
-                    background: "#1E293B",
-                    color: "#F1F5F9",
-                    fontSize: "14px",
-                    borderRadius: "12px",
-                    padding: "12px 16px",
-                    // boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                  },
-                  error: {
-                    style: {
-                      background: "#EF4444",
-                      color: "#fff",
-                    },
-                    iconTheme: {
-                      primary: "#fff",
-                      secondary: "#EF4444",
-                    },
-                  },
-                }}
-              /> */}
+              <div className="flex flex-wrap gap-2">
+                {item.category.map((cat, idx) => (
+                  <span
+                    key={idx}
+                    className={`text-xs font-onest font-medium px-3 py-1 rounded-full 
+        ${categoryColors[cat] || "bg-gray-100 text-gray-700"}`}
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
 
               <button
                 onClick={handleOnProgress}
