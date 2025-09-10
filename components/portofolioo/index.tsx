@@ -70,7 +70,7 @@ export default function Portofolio() {
           {
             img: imgTicket,
             title: "Train Ticket",
-            category: ["Front End", "Back End", "Fullstack"],
+            category: ["Front End", "Back End"],
           },
           {
             img: imgFooder,
@@ -110,14 +110,14 @@ export default function Portofolio() {
               height={0}
             />
             <div className=" py-3 px-4 flex flex-col gap-6 mt-2">
-              <h4 className="text-lg font-onest font-semibold text-gray-800">
+              <h4 className="text-xl font-onest font-semibold text-gray-800">
                 {item.title}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {item.category.map((cat, idx) => (
                   <span
                     key={idx}
-                    className={`text-xs font-onest font-medium px-3 py-1 rounded-full 
+                    className={`text-sm font-onest font-medium px-3 py-1 rounded-full 
         ${categoryColors[cat] || "bg-gray-100 text-gray-700"}`}
                   >
                     {cat}
