@@ -10,6 +10,7 @@ import imgLearn from "@/public/porto-images/redesign_khan_academy.png";
 import imgFooder from "@/public/porto-images/fooder-home.png";
 import imgNusa from "@/public/porto-images/exploreNusa.png";
 import imgWorker from "@/public/porto-images/web1.png";
+import Link from "next/link";
 
 export default function Portofolio() {
   useEffect(() => {
@@ -135,13 +136,15 @@ export default function Portofolio() {
           </div>
         ))}
       </div>
-      <button
-        onClick={handleOnProgress}
-        className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg  hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-full        sm:w-1/6     lg:w-1/5    
+      <Link href="/projects" className="w-full flex justify-center items-center">
+        <button
+          // onClick={handleOnProgress}
+          className="text-sm font-onest font-medium text-[#f5f5f5] bg-slate-blue py-3 px-6 rounded-lg  hover:bg-slate-blue/90 transition-all hover:cursor-pointer w-full        sm:w-1/6     lg:w-1/5    
 "
-      >
-        See more
-      </button>
+        >
+          See more
+        </button>
+      </Link>
     </div>
   );
 }
