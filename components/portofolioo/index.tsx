@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import imgTicket from "@/public/porto-images/train-ticket.png";
 import imgEcommerce from "@/public/porto-images/ecommerce.png";
 import imgLearn from "@/public/porto-images/redesign_khan_academy.png";
