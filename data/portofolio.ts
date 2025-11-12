@@ -64,18 +64,18 @@ export interface PortofolioItem {
       description: "Website Agency.",
       category: "website",
     },
-    {
-      id: 9,
-      name: "Bookself Website",
-      image: "/porto-images/library.png",
-      description: "List buku untuk membaca.",
-      category: "website",
-    },
-    {
-      id: 10,
-      name: "Travel Website",
-      image: "/porto-images/travel.png",
-      description: "Website Travel.",
-      category: "website",
-    },
+    // {
+    //   id: 9,
+    //   name: "Bookself Website",
+    //   image: "/porto-images/library.png",
+    //   description: "List buku untuk membaca.",
+    //   category: "website",
+    // },
+    // {
+    //   id: 10,
+    //   name: "Travel Website",
+    //   image: "/porto-images/travel.png",
+    //   description: "Website Travel.",
+    //   category: "website",
+    // },
   ];

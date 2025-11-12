@@ -2,18 +2,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { arrayPorto } from "../../data/portofolio";
-export default function Projects({ searchParams }: any): {
-  searchParams: {
-    category?: string;
-  };
-} {
-  const category = searchParams.category;
+
+export default function Projects() {
+  const searchParams = useSearchParams(); 
+  const category = searchParams.get("category");
+  
   const filteredPorto = category
     ? arrayPorto.filter(
         (porto) => porto.category.toLowerCase() === category.toLowerCase()
       )
     : arrayPorto;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -148,7 +149,7 @@ export default function Projects({ searchParams }: any): {
       </div>
 
       <h2 className="text-4xl my-16 font-bold tracking-tight text-center text-text-heading">
-        My Portofolio's
+        My Portofolio&apos;s
       </h2>
       <div className="mt-8 p-2 w-xl text-text-heading text-xl font-semibold flex space-x-10 justify-center">
         <Link
